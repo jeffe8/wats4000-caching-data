@@ -53,7 +53,7 @@ export default {
     // If not, make the API call and cache the data with the cacheLabel and cacheExpiry defined above
 
     if (!this.$ls.get(cacheLabel)) {
-      
+      console.log(`Cache detected for ${cacheLabel}.`);
       API.get('weather', {
         params: {
             id: this.$route.params.cityId
@@ -72,7 +72,7 @@ export default {
         });
       });
     } else {
-      this.weatherData = $ls.get(cacheLabel);
+      this.weatherData = this.$ls.get(cacheLabel);
       this.showLoading = false;
     }  
     
