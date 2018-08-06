@@ -48,12 +48,10 @@ export default {
     let cacheExpiry = 15 * 60 * 1000; //15 min.
     
 
-    // TODO: Use a conditional to check if the API query has been cached
-    // If so, use that cached data
-    // If not, make the API call and cache the data with the cacheLabel and cacheExpiry defined above
+    
 
     if (!this.$ls.get(cacheLabel)) {
-      console.log(`Cache detected for ${cacheLabel}.`);
+      console.log(`Cache does not exist for this search item`);
       API.get('weather', {
         params: {
             id: this.$route.params.cityId
@@ -72,6 +70,7 @@ export default {
         });
       });
     } else {
+      console.log(`Cache exists for this search item`);
       this.weatherData = this.$ls.get(cacheLabel);
       this.showLoading = false;
     }  

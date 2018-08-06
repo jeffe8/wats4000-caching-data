@@ -67,12 +67,7 @@ export default {
 
       let cacheExpiry = 15 * 60 * 1000; // 15 min in miliseconds
 
-      // TODO: Wrap this API call in a conditional to check if the request should be made.
-      // Use this.$ls.get() to check if there is a cached query
-      // If there is a cached query, use that data instead of making an API request
-      // If not, make the API request and then cache the value for the amount of time specified in `cacheExpiry`
-
-
+      
       if (!this.$ls.get(cacheLabel)){
         //No cache exisits - perform API Call
         console.log(`No cache detected for ${cacheLabel}.`);
